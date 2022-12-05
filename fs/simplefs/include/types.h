@@ -75,7 +75,7 @@ struct sfs_inode;
 struct sfs_super;
 
 struct custom_options {
-	const char*        device;
+	const char*        device;                         //驱动路径
 	boolean            show_help;
 };
 
