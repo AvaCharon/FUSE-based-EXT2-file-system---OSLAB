@@ -78,6 +78,10 @@ types.h
 newfs.h
 /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/newfs.h
 
+/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/nfs_debug.c
+../include/newfs.h
+/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/newfs.h
+
 /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/nfs_utils.c
 ../include/newfs.h
 /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/newfs.h

@@ -7,6 +7,12 @@ CMakeFiles/newfs.dir/src/newfs.c.o: ../include/newfs.h
 CMakeFiles/newfs.dir/src/newfs.c.o: ../include/types.h
 CMakeFiles/newfs.dir/src/newfs.c.o: ../src/newfs.c
 
+CMakeFiles/newfs.dir/src/nfs_debug.c.o: ../include/ddriver.h
+CMakeFiles/newfs.dir/src/nfs_debug.c.o: ../include/ddriver_ctl_user.h
+CMakeFiles/newfs.dir/src/nfs_debug.c.o: ../include/newfs.h
+CMakeFiles/newfs.dir/src/nfs_debug.c.o: ../include/types.h
+CMakeFiles/newfs.dir/src/nfs_debug.c.o: ../src/nfs_debug.c
+
 CMakeFiles/newfs.dir/src/nfs_utils.c.o: ../include/ddriver.h
 CMakeFiles/newfs.dir/src/nfs_utils.c.o: ../include/ddriver_ctl_user.h
 CMakeFiles/newfs.dir/src/nfs_utils.c.o: ../include/newfs.h

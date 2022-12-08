@@ -306,6 +306,7 @@ int nfs_sync_inode(struct nfs_inode *inode)
         // 共写NFS_DATA_PER_FILE个数据块
         while (dentry_cursor != NULL && blk_cnt < NFS_DATA_PER_FILE)
         {
+            // 将目录下dentry存入第一个数据块
             offset = NFS_DATA_OFS(inode->bno[blk_cnt]);
             // 写一个blk
             while (dentry_cursor != NULL)
@@ -738,6 +739,8 @@ int nfs_mount(struct custom_options options)
         return -NFS_ERROR_IO;
     }
 
+
+
     if (is_init)
     { /* 分配根节点 */
         root_inode = nfs_alloc_inode(root_dentry);
@@ -749,7 +752,7 @@ int nfs_mount(struct custom_options options)
     nfs_super.root_dentry = root_dentry;
     nfs_super.is_mounted = TRUE;
 
-    // nfs_dump_map();
+    nfs_dump_map();
     return ret;
 }
 

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/newfs.c" "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/build/CMakeFiles/newfs.dir/src/newfs.c.o"
+  "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/nfs_debug.c" "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/build/CMakeFiles/newfs.dir/src/nfs_debug.c.o"
   "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/nfs_utils.c" "/home/AvaCharon/fuse/user-land-filesystem/fs/newfs/build/CMakeFiles/newfs.dir/src/nfs_utils.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

@@ -64,5 +64,8 @@ int   			   newfs_truncate(const char *, off_t);
 			
 int   			   newfs_open(const char *, struct fuse_file_info *);
 int   			   newfs_opendir(const char *, struct fuse_file_info *);
-
+/******************************************************************************
+* SECTION: nfs_debug.c
+*******************************************************************************/
+void 			   nfs_dump_map();
 #endif  /* _newfs_H_ */

@@ -7,6 +7,12 @@ CMakeFiles/newfs.dir/src/newfs.c.o
  ../include/newfs.h
  ../include/types.h
  /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/newfs.c
+CMakeFiles/newfs.dir/src/nfs_debug.c.o
+ /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/ddriver.h
+ /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/ddriver_ctl_user.h
+ /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/newfs.h
+ /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/types.h
+ /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/src/nfs_debug.c
 CMakeFiles/newfs.dir/src/nfs_utils.c.o
  /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/ddriver.h
  /home/AvaCharon/fuse/user-land-filesystem/fs/newfs/include/ddriver_ctl_user.h
