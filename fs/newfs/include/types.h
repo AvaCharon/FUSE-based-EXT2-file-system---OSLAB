@@ -52,8 +52,8 @@ typedef enum nfs_file_type
 #define NFS_SUPER_BLOCKS 1
 #define NFS_MAP_INODE_BLOCKS 1
 #define NFS_MAP_DATA_BLOCKS 1
-#define NFS_INODE_BLOCKS 512
-#define NFS_DATA_BLOCKS 2048 // 2K*1KB=2MB
+#define NFS_INODE_BLOCKS 512 
+#define NFS_DATA_BLOCKS 2048 // 3072 
 /******************************************************************************
  * SECTION: Macro Function
  *******************************************************************************/

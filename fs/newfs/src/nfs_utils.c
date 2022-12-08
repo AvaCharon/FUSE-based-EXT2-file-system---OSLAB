@@ -175,6 +175,7 @@ int nfs_drop_dentry(struct nfs_inode *inode, struct nfs_dentry *dentry)
 struct nfs_inode *nfs_alloc_inode(struct nfs_dentry *dentry)
 {
     struct nfs_inode *inode;
+    inode = (struct nfs_inode *)malloc(sizeof(struct nfs_inode));
     int byte_cursor = 0;
     int bit_cursor = 0;
     int ino_cursor = 0; // 记录索引位图空闲位置下标
@@ -206,7 +207,11 @@ struct nfs_inode *nfs_alloc_inode(struct nfs_dentry *dentry)
         }
     }
 
-    // 从数据位图中取空闲，对于目录只取一个，否则要取出NFS_DATA_PER_FILE个
+    inode->ino = ino_cursor;
+
+    inode->size = 0;
+
+    // 从数据位图中取空闲，要取出NFS_DATA_PER_FILE个
     for (byte_cursor = 0; byte_cursor < NFS_BLKS_SZ(nfs_super.map_data_blks);
          byte_cursor++)
     {
@@ -214,7 +219,7 @@ struct nfs_inode *nfs_alloc_inode(struct nfs_dentry *dentry)
         {
             if ((nfs_super.map_data[byte_cursor] & (0x1 << bit_cursor)) == 0)
             {
-                /* 当前ino_cursor位置空闲 */
+                /* 当前bno_cursor位置空闲 */
                 nfs_super.map_data[byte_cursor] |= (0x1 << bit_cursor);
 
                 inode->bno[data_blk_cnt++] = bno_cursor;
@@ -236,10 +241,6 @@ struct nfs_inode *nfs_alloc_inode(struct nfs_dentry *dentry)
     if (!is_find_free_entry || ino_cursor == nfs_super.max_ino)
         return -NFS_ERROR_NOSPACE;
 
-    inode = (struct nfs_inode *)malloc(sizeof(struct nfs_inode));
-    inode->ino = ino_cursor;
-    inode->size = 0;
-
     if (!is_find_enough_free_data_blk || bno_cursor == nfs_super.max_data)
         return -NFS_ERROR_NOSPACE;
 
@@ -256,7 +257,6 @@ struct nfs_inode *nfs_alloc_inode(struct nfs_dentry *dentry)
     // 为文件中的数据块分配内存
     if (NFS_IS_REG(inode))
     {
-
         int p_count = 0;
         for (p_count = 0; p_count < NFS_DATA_PER_FILE; p_count++)
         {
@@ -303,7 +303,7 @@ int nfs_sync_inode(struct nfs_inode *inode)
         int blk_cnt = 0;
         dentry_cursor = inode->dentrys;
 
-        //共写NFS_DATA_PER_FILE个数据块
+        // 共写NFS_DATA_PER_FILE个数据块
         while (dentry_cursor != NULL && blk_cnt < NFS_DATA_PER_FILE)
         {
             offset = NFS_DATA_OFS(inode->bno[blk_cnt]);
